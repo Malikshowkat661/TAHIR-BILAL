@@ -1,252 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Education | Tahir Bilal</title>
-
-  <link rel="stylesheet" href="style.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Tahir Bilal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="glow glow-one"></div>
-  <div class="glow glow-two"></div>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">T<span>B</span></a>
 
-  <!-- Navigation -->
-  <header class="navbar">
-
-    <a href="index.html" class="logo">
-      T<span>B</span>
-    </a>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="education.html" class="active">Education</a>
-      <a href="bikes.html">Bikes</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </header>
-
-
-  <main>
-
-    <!-- Page Hero -->
-
-    <section class="page-hero">
-
-      <p class="welcome">
-        02 — EDUCATION
-      </p>
-
-      <h1>
-        My Educational<br>
-        <span>Journey</span>
-      </h1>
-
-      <p class="description">
-        Education is an important part of my journey.
-        Here is my academic background and current degree.
-      </p>
-
-    </section>
-
-
-    <!-- Current Degree -->
-
-    <section class="education-main">
-
-      <div class="degree-card">
-
-        <div class="degree-icon">
-          <i class="fa-solid fa-graduation-cap"></i>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="bikes.html">Bikes</a>
+            <a href="contact.html">Contact</a>
         </div>
+    </div>
+</nav>
 
-        <p class="section-label">
-          CURRENT DEGREE
-        </p>
+<section class="container">
 
-        <h2>
-          Bachelor of Business Administration
-        </h2>
+    <div class="page-title">
+        <div class="small-title">02 — EDUCATION</div>
+        <h1>My <span>Education</span></h1>
+        <p>My academic journey</p>
+    </div>
 
-        <div class="degree-status">
-          <i class="fa-solid fa-circle-check"></i>
-          Present — Last Semester
-        </div>
-
+    <div class="card">
+        <h2>🎓 BBA Student</h2>
         <p>
-          Currently pursuing BBA and completing
-          the final semester of my degree.
+            Currently pursuing Bachelor of Business Administration (BBA)
+            and working towards building a strong professional future.
         </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- Academic Records -->
-
-    <section class="academic-section">
-
-      <p class="section-label">
-        ACADEMIC RECORD
-      </p>
-
-      <h2>
-        My <span>Results</span>
-      </h2>
-
-
-      <div class="academic-grid">
-
-
-        <!-- 10th -->
-
-        <div class="academic-card">
-
-          <div class="academic-number">
-            01
-          </div>
-
-          <i class="fa-solid fa-book-open"></i>
-
-          <h3>
-            10th Standard
-          </h3>
-
-          <p>
-            Amar Singh
-          </p>
-
-          <strong>
-            71%
-          </strong>
-
-        </div>
-
-
-        <!-- 11th -->
-
-        <div class="academic-card">
-
-          <div class="academic-number">
-            02
-          </div>
-
-          <i class="fa-solid fa-book"></i>
-
-          <h3>
-            11th Standard
-          </h3>
-
-          <p>
-            Amar Singh
-          </p>
-
-          <strong>
-            76%
-          </strong>
-
-        </div>
-
-
-        <!-- 12th -->
-
-        <div class="academic-card featured-academic">
-
-          <div class="academic-number">
-            03
-          </div>
-
-          <i class="fa-solid fa-certificate"></i>
-
-          <h3>
-            12th Standard
-          </h3>
-
-          <p>
-            Amar Singh
-          </p>
-
-          <strong>
-            77.8%
-          </strong>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- Education Quote -->
-
-    <section class="education-quote">
-
-      <i class="fa-solid fa-lightbulb"></i>
-
-      <h2>
-        Learn. Grow. <span>Move Forward.</span>
-      </h2>
-
-      <p>
-        I believe that learning never stops.
-        Education gives us the knowledge and confidence
-        to build a better future.
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <!-- Footer -->
-
-  <footer>
-
-    <div class="footer-logo">
-      TAHIR<span>BILAL</span>
     </div>
 
-    <p>
-      Bike Rider • BBA Student • Motorcycle Enthusiast
-    </p>
-
-    <div class="footer-social">
-
-      <a
-        href="https://www.instagram.com/tahirbilal_03/"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <i class="fa-brands fa-instagram"></i>
-
-      </a>
-
-      <a href="mailto:offixialtahir2638@gmail.com">
-
-        <i class="fa-solid fa-envelope"></i>
-
-      </a>
-
+    <div class="card">
+        <h2>💻 Computer & Technology</h2>
+        <p>
+            I am also interested in computers, technology and learning
+            new digital skills.
+        </p>
     </div>
 
-    <p class="copyright">
-      © 2026 Tahir Bilal. All Rights Reserved.
-    </p>
+    <div class="card">
+        <h2>🚀 Future Goals</h2>
+        <p>
+            My goal is to continue learning, improve my skills and build
+            a successful career while following my passion.
+        </p>
+    </div>
 
-  </footer>
+</section>
+
+<footer>
+    <h2>TAHIR <span>BILAL</span></h2>
+    <p>Learning • Growing • Riding</p>
+</footer>
 
 </body>
 </html>
