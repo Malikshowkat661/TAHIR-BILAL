@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Tahir Bilal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">T<span>B</span></a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="bikes.html">Bikes</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section class="container">
+
+    <div class="page-title">
+        <div class="small-title">04 — CONTACT</div>
+
+        <h1>Contact <span>Me</span></h1>
+
+        <p>Connect with me</p>
+    </div>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+            📧 Email
+            <br>
+            <strong>offixtahir2638@gmail.com</strong>
+        </div>
+
+        <div class="contact-item">
+            📸 Instagram
+            <br>
+
+            <a
+                class="instagram"
+                href="https://www.instagram.com/tahirbilal_03/"
+                target="_blank">
+                @tahirbilal_03
+            </a>
+        </div>
+
+        <div class="contact-item">
+            🏍️ Motorcycle Enthusiast
+            <br>
+            <strong>Tahir Bilal</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <h2>TAHIR <span>BILAL</span></h2>
+    <p>Let's connect and share the journey.</p>
+</footer>
+
+</body>
+</html>
