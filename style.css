@@ -11,24 +11,35 @@ html {
 body {
     font-family: "Inter", Arial, sans-serif;
     background: #050507;
-    color: #fff;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(5, 5, 7, 0.75);
+
+    background: rgba(5, 5, 7, 0.82);
     backdrop-filter: blur(18px);
+
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .nav-container {
     max-width: 1250px;
     margin: auto;
+
     padding: 18px 30px;
 
     display: flex;
@@ -38,13 +49,20 @@ body {
 
 .logo {
     font-family: "Space Grotesk", sans-serif;
+
     font-size: 34px;
     font-weight: 800;
+
     letter-spacing: -3px;
 }
 
 .logo span {
-    background: linear-gradient(135deg, #8b5cf6, #ff6b35);
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #ff6b35
+    );
+
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -56,19 +74,25 @@ body {
 
 .nav-links a {
     color: #aaa;
+
     font-size: 14px;
     font-weight: 600;
+
     transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: white;
+    color: #ffffff;
 }
 
-/* ================= HERO ================= */
+
+/* =========================
+   HOME HERO
+========================= */
 
 .hero {
     min-height: 92vh;
+
     position: relative;
 
     display: flex;
@@ -76,18 +100,28 @@ body {
     justify-content: center;
 
     text-align: center;
+
     padding: 100px 25px;
 
     overflow: hidden;
 
     background:
-        radial-gradient(circle at 20% 30%, rgba(139,92,246,0.18), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(255,107,53,0.12), transparent 30%),
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(139,92,246,0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,107,53,0.12),
+            transparent 30%
+        ),
         #050507;
 }
 
 .hero::before {
     content: "";
+
     position: absolute;
 
     width: 450px;
@@ -107,6 +141,7 @@ body {
 
 .hero::after {
     content: "";
+
     position: absolute;
 
     width: 400px;
@@ -180,6 +215,7 @@ body {
 
 .hero h2 {
     font-size: 25px;
+
     margin-bottom: 18px;
 }
 
@@ -195,7 +231,10 @@ body {
     line-height: 1.8;
 }
 
-/* ================= BUTTONS ================= */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons {
     margin-top: 38px;
@@ -220,9 +259,7 @@ body {
 
     transition: 0.35s;
 
-    position: relative;
-
-    overflow: hidden;
+    display: inline-block;
 }
 
 .btn-primary {
@@ -232,6 +269,8 @@ body {
         #a855f7,
         #ff6b35
     );
+
+    color: white;
 
     box-shadow:
         0 10px 35px rgba(139,92,246,0.25);
@@ -252,7 +291,10 @@ body {
         0 15px 40px rgba(139,92,246,0.30);
 }
 
-/* ================= SOCIAL ================= */
+
+/* =========================
+   HOME SOCIAL
+========================= */
 
 .home-social {
     margin-top: 35px;
@@ -276,11 +318,10 @@ body {
     font-weight: 700;
 }
 
-.home-social a:hover {
-    color: white;
-}
 
-/* ================= QUICK CARDS ================= */
+/* =========================
+   QUICK CARDS
+========================= */
 
 .quick-section {
     max-width: 1150px;
@@ -354,7 +395,10 @@ body {
     line-height: 1.7;
 }
 
-/* ================= QUOTE ================= */
+
+/* =========================
+   QUOTE
+========================= */
 
 .quote {
     padding: 130px 25px;
@@ -415,7 +459,422 @@ body {
     font-size: 15px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-page {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 70px 25px 100px;
+}
+
+
+/* ABOUT HERO */
+
+.about-hero {
+    text-align: center;
+
+    padding: 70px 20px 100px;
+}
+
+.about-badge {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border: 1px solid rgba(167,139,250,0.4);
+
+    border-radius: 50px;
+
+    background: rgba(139,92,246,0.08);
+
+    color: #b9a1ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.about-hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(55px, 9vw, 105px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 25px;
+}
+
+.about-hero h1 span {
+    background: linear-gradient(
+        100deg,
+        #8b5cf6,
+        #c084fc,
+        #ff6b35
+    );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.about-hero p {
+    color: #777;
+
+    font-size: 17px;
+}
+
+
+/* PROFILE */
+
+.profile-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.02)
+        );
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.35);
+
+    margin-bottom: 25px;
+}
+
+.profile-icon {
+    min-width: 150px;
+
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 35px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ff6b35
+        );
+
+    box-shadow:
+        0 20px 60px rgba(139,92,246,0.25);
+}
+
+.profile-content h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 42px;
+
+    margin: 12px 0 15px;
+}
+
+.profile-content p {
+    color: #888;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+
+    margin-top: 10px;
+}
+
+
+/* ABOUT LABEL */
+
+.section-label {
+    color: #a78bfa;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* RIDER STATS */
+
+.rider-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin: 25px 0;
+}
+
+.stat-box {
+    padding: 30px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.035);
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.35s;
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(139,92,246,0.45);
+
+    background: rgba(139,92,246,0.06);
+}
+
+.stat-box strong {
+    color: #a78bfa;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.stat-box h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 25px;
+
+    margin: 15px 0 7px;
+}
+
+.stat-box p {
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* ABOUT BOXES */
+
+.about-box {
+    padding: 45px;
+
+    margin-top: 20px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.4s;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(139,92,246,0.3);
+}
+
+.about-box h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(30px, 5vw, 52px);
+
+    letter-spacing: -2px;
+
+    margin: 15px 0;
+}
+
+.about-box h2 span {
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ff6b35
+    );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.about-box p {
+    max-width: 800px;
+
+    color: #777;
+
+    line-height: 1.9;
+
+    font-size: 15px;
+}
+
+
+/* DREAM */
+
+.dream-box {
+    margin-top: 20px;
+
+    padding: 50px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(139,92,246,0.2),
+            transparent 40%
+        ),
+        rgba(255,255,255,0.035);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.dream-box h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    margin: 15px 0;
+}
+
+.dream-box p {
+    color: #777;
+}
+
+.dream-number {
+    font-size: 150px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 800;
+
+    color: rgba(255,255,255,0.04);
+
+    line-height: 1;
+}
+
+
+/* INSTAGRAM */
+
+.instagram-box {
+    margin-top: 25px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(225,48,108,0.10),
+            rgba(139,92,246,0.08)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.instagram-title {
+    color: #ff6ba6;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.instagram-box h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 45px;
+
+    margin: 15px 0;
+}
+
+.instagram-box p {
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.instagram-btn {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #e1306c,
+            #f77737
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(225,48,108,0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     padding: 60px 25px;
@@ -463,24 +922,30 @@ footer p {
     font-weight: 700;
 }
 
-/* ================= ANIMATIONS ================= */
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes heroEnter {
 
     from {
         opacity: 0;
+
         transform: translateY(35px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 }
 
 @keyframes floatGlow {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -489,7 +954,10 @@ footer p {
     }
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 750px) {
 
@@ -512,6 +980,9 @@ footer p {
     .nav-links a {
         font-size: 12px;
     }
+
+
+    /* HOME */
 
     .hero {
         min-height: 85vh;
@@ -541,6 +1012,72 @@ footer p {
         padding: 28px;
     }
 
+
+    /* ABOUT */
+
+    .about-page {
+        padding: 50px 18px 70px;
+    }
+
+    .about-hero {
+        padding: 45px 10px 70px;
+    }
+
+    .about-hero h1 {
+        font-size: 58px;
+
+        letter-spacing: -4px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 30px;
+    }
+
+    .profile-icon {
+        min-width: 110px;
+
+        width: 110px;
+
+        height: 110px;
+
+        font-size: 32px;
+    }
+
+    .profile-content h2 {
+        font-size: 34px;
+    }
+
+    .rider-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box {
+        padding: 30px;
+    }
+
+    .dream-box {
+        padding: 35px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .dream-number {
+        display: none;
+    }
+
+    .instagram-box h2 {
+        font-size: 32px;
+    }
+
+
+    /* QUOTE */
+
     .quote {
         padding: 90px 20px;
     }
@@ -548,4 +1085,5 @@ footer p {
     .quote h2 {
         letter-spacing: -2px;
     }
-}
+
+    }
