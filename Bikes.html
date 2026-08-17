@@ -1,90 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bikes | Tahir Bilal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bikes | Tahir Bilal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#050507;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,7,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-4px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#8b5cf6,#ff6b35);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#c084fc;
+}
+
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 25px 55px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 20px;
+    border:1px solid #8b5cf6;
+    border-radius:50px;
+    color:#b99cff;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:3px;
+    background:rgba(139,92,246,.08);
+}
+
+.hero h1{
+    margin-top:22px;
+    font-size:clamp(52px,9vw,92px);
+    line-height:.95;
+    letter-spacing:-5px;
+}
+
+.gradient{
+    background:linear-gradient(
+        100deg,
+        #8b5cf6,
+        #c084fc,
+        #ff6b35
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#777;
+    margin-top:20px;
+    font-size:17px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 25px 90px;
+}
+
+.title{
+    margin:25px 0 20px;
+}
+
+.label{
+    color:#a78bfa;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.title h2{
+    font-size:38px;
+    margin-top:8px;
+}
+
+/* MY PHOTOS */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.photo{
+    height:330px;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    border:1px solid rgba(255,255,255,.08);
+    background:#101014;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+}
+
+.photo:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 55%,
+        rgba(0,0,0,.78)
+    );
+}
+
+.photo span{
+    position:absolute;
+    z-index:2;
+    bottom:15px;
+    left:16px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* BIKES */
+
+.bikes{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.bike-card{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.015)
+        );
+    transition:.35s;
+}
+
+.bike-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(139,92,246,.55);
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.bike-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+}
+
+.bike-info{
+    padding:20px;
+}
+
+.bike-info h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.bike-info p{
+    color:#777;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* JOURNEY */
+
+.journey{
+    margin-top:30px;
+    padding:45px 35px;
+    border-radius:25px;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(139,92,246,.16),
+            transparent 45%
+        ),
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.journey h2{
+    font-size:clamp(32px,6vw,60px);
+    margin:12px 0;
+    letter-spacing:-3px;
+}
+
+.journey p{
+    max-width:760px;
+    color:#777;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:55px 20px;
+    border-top:1px solid rgba(255,255,255,.06);
+    background:#030304;
+}
+
+footer h2{
+    font-size:30px;
+}
+
+footer p{
+    color:#555;
+    margin-top:9px;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-container{
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .nav-links{
+        gap:16px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        font-size:12px;
+    }
+
+    .gallery,
+    .bikes{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:520px){
+
+    .hero{
+        padding-top:65px;
+    }
+
+    .hero h1{
+        font-size:57px;
+        letter-spacing:-4px;
+    }
+
+    .gallery,
+    .bikes{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:390px;
+    }
+
+    .bike-card img{
+        height:250px;
+    }
+
+    .container{
+        padding-left:16px;
+        padding-right:16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">T<span>B</span></a>
+<!-- NAVBAR -->
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="education.html">Education</a>
-            <a href="Bikes.html">Bikes</a>
-            <a href="Contact.Html">Contact</a>
-        </div>
-    </div>
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+TB
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="About.html">
+About
+</a>
+
+<a href="Education.html">
+Education
+</a>
+
+<a href="Bikes.html" class="active">
+Bikes
+</a>
+
+<a href="Contact.html">
+Contact
+</a>
+
+</div>
+
+</div>
+
 </nav>
 
-<section class="container">
 
-    <div class="page-title">
-        <div class="small-title">03 — MY BIKES</div>
+<!-- HERO -->
 
-        <h1>MY RIDING <span>MACHINES</span></h1>
+<section class="hero">
 
-        <p>
-            Motorcycles that are part of my riding passion,
-            adventure and everyday journey.
-        </p>
-    </div>
+<span class="badge">
+03 — BIKES & RIDES
+</span>
 
-    <div class="bike-card bike-one">
-        <div class="bike-content">
+<h1>
+My <span class="gradient">Bikes</span>
+</h1>
 
-            <div class="number">01</div>
-
-            <h2>
-                KTM <span class="gradient-text">BIKE</span>
-            </h2>
-
-            <p>
-                My motorcycle is an important part of my riding journey.
-                I love exploring roads, mountains and new places.
-            </p>
-
-            <br>
-
-            <p>
-                🏔️ Adventure &nbsp;&nbsp;
-                🛣️ Touring &nbsp;&nbsp;
-                🏍️ Road Trips
-            </p>
-
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>🏍️ Riding Passion</h2>
-
-        <p>
-            Every ride gives me a new experience. From mountain roads
-            to long journeys, motorcycles are a big part of my lifestyle.
-        </p>
-    </div>
+<p>
+Motorcycles, mountain roads and memories from my rides.
+</p>
 
 </section>
 
-<section class="quote">
-    <h2>
-        Life is better<br>
-        <span>on two wheels.</span>
-    </h2>
 
-    <p>Every road has a story. Every ride creates a memory.</p>
+<main class="container">
+
+
+<!-- YOUR 7 PHOTOS -->
+
+<div class="title">
+
+<span class="label">
+MY MEMORIES
+</span>
+
+<h2>
+My <span class="gradient">Rides</span>
+</h2>
+
+</div>
+
+
+<section class="gallery">
+
+<div class="photo">
+<img src="my1.jpg" alt="Ride photo">
+<span>Mountain Escape</span>
+</div>
+
+<div class="photo">
+<img src="my2.jpg" alt="Ride photo">
+<span>Mountain Journey</span>
+</div>
+
+<div class="photo">
+<img src="my3.jpg" alt="Ride photo">
+<span>Adventure</span>
+</div>
+
+<div class="photo">
+<img src="my4.jpg" alt="Ride photo">
+<span>On The Bike</span>
+</div>
+
+<div class="photo">
+<img src="my5.jpg" alt="Ride photo">
+<span>Riding Life</span>
+</div>
+
+<div class="photo">
+<img src="my6.jpg" alt="Ride photo">
+<span>Road Trip</span>
+</div>
+
+<div class="photo">
+<img src="my7.jpg" alt="Ride photo">
+<span>Mountain Roads</span>
+</div>
+
 </section>
+
+
+<!-- BIKES -->
+
+<div class="title" style="margin-top:65px">
+
+<span class="label">
+MY BIKE COLLECTION
+</span>
+
+<h2>
+Bikes I <span class="gradient">Love</span>
+</h2>
+
+</div>
+
+
+<section class="bikes">
+
+
+<div class="bike-card">
+
+<img src="my1.jpg" alt="Adventure Bike">
+
+<div class="bike-info">
+
+<h3>
+Adventure Bike
+</h3>
+
+<p>
+Made for mountain roads, long rides and exploration.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="bike-card">
+
+<img src="my2.jpg" alt="Street Bike">
+
+<div class="bike-info">
+
+<h3>
+Street Bike
+</h3>
+
+<p>
+A sporty style for riders who love the open road.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="bike-card">
+
+<img src="my3.jpg" alt="Sports Bike">
+
+<div class="bike-info">
+
+<h3>
+Sports Bike
+</h3>
+
+<p>
+A bike collection inspired by speed, style and freedom.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="bike-card">
+
+<img src="my4.jpg" alt="Mountain Bike">
+
+<div class="bike-info">
+
+<h3>
+Mountain Ride
+</h3>
+
+<p>
+Perfect inspiration for beautiful mountain journeys.
+</p>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- JOURNEY -->
+
+<section class="journey">
+
+<span class="label">
+THE RIDER'S LIFE
+</span>
+
+<h2>
+Ride. Explore.
+<span class="gradient">Repeat.</span>
+</h2>
+
+<p>
+For me, riding is more than travelling from one place to another.
+It is about freedom, beautiful roads, mountains, new experiences
+and memories that stay with you.
+</p>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
 
 <footer>
-    <h2>TAHIR <span>BILAL</span></h2>
-    <p>Bike Rider • Motorcycle Enthusiast</p>
+
+<h2>
+TAHIR <span class="gradient">BILAL</span>
+</h2>
+
+<p>
+Bike Rider • BBA Student • Motorcycle Enthusiast
+</p>
+
+<p>
+© 2026 Tahir Bilal. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
-  </html>
+    </html>
