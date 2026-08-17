@@ -1,478 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Me | Tahir Bilal</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #050507;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(5,5,7,.88);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 34px;
-            font-weight: 900;
-            letter-spacing: -4px;
-            text-decoration: none;
-            background: linear-gradient(135deg,#8b5cf6,#ff6b35);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: .3s;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 650px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.92),
-                    rgba(0,0,0,.55),
-                    rgba(0,0,0,.35)
-                ),
-                url("IMG-20260816-WA0006.jpg");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 75% 45%,
-                    rgba(139,92,246,.25),
-                    transparent 35%
-                );
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            width: 100%;
-            margin: auto;
-            padding: 80px 30px;
-        }
-
-        .small-title {
-            color: #b99cff;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px,10vw,105px);
-            line-height: .9;
-            letter-spacing: -6px;
-            max-width: 800px;
-            margin-bottom: 25px;
-        }
-
-        .gradient {
-            background: linear-gradient(
-                100deg,
-                #8b5cf6,
-                #c084fc,
-                #ff6b35
-            );
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            color: #bbb;
-            font-size: 20px;
-            max-width: 650px;
-            line-height: 1.6;
-        }
-
-        /* MAIN */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 70px 20px;
-        }
-
-        .section-label {
-            color: #a78bfa;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(40px,7vw,70px);
-            letter-spacing: -4px;
-            margin-bottom: 20px;
-        }
-
-        /* PROFILE */
-        .profile {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 45px;
-            align-items: center;
-            padding: 45px;
-            border-radius: 30px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.09),
-                    rgba(255,255,255,.025)
-                );
-
-            border: 1px solid rgba(255,255,255,.1);
-            box-shadow: 0 30px 90px rgba(0,0,0,.45);
-        }
-
-        .profile-logo {
-            width: 180px;
-            height: 180px;
-            border-radius: 40px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 55px;
-            font-weight: 900;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #7c3aed,
-                    #ff6b35
-                );
-
-            box-shadow:
-                0 20px 70px rgba(139,92,246,.35);
-        }
-
-        .profile h2 {
-            font-size: 45px;
-            margin: 8px 0 15px;
-        }
-
-        .profile p {
-            color: #999;
-            line-height: 1.9;
-            font-size: 16px;
-        }
-
-        /* STATS */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .stat {
-            padding: 35px 25px;
-            border-radius: 25px;
-            background: rgba(255,255,255,.045);
-            border: 1px solid rgba(255,255,255,.08);
-            transition: .35s;
-        }
-
-        .stat:hover {
-            transform: translateY(-8px);
-            border-color: #8b5cf6;
-        }
-
-        .number {
-            color: #a78bfa;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        .stat h3 {
-            font-size: 28px;
-            margin: 12px 0 8px;
-        }
-
-        .stat p {
-            color: #777;
-        }
-
-        /* PASSION */
-        .passion {
-            margin-top: 25px;
-            padding: 55px 45px;
-            border-radius: 30px;
-
-            background:
-                radial-gradient(
-                    circle at 80% 40%,
-                    rgba(139,92,246,.18),
-                    transparent 45%
-                ),
-                rgba(255,255,255,.035);
-
-            border: 1px solid rgba(255,255,255,.08);
-        }
-
-        .passion h2 {
-            font-size: clamp(40px,7vw,65px);
-            letter-spacing: -3px;
-            margin: 12px 0 20px;
-        }
-
-        .passion p {
-            max-width: 780px;
-            color: #888;
-            line-height: 1.9;
-            font-size: 16px;
-        }
-
-        /* CARDS */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .card {
-            padding: 35px 28px;
-            border-radius: 25px;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.07),
-                    rgba(255,255,255,.015)
-                );
-            border: 1px solid rgba(255,255,255,.08);
-            transition: .4s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139,92,246,.55);
-            box-shadow: 0 20px 60px rgba(0,0,0,.45);
-        }
-
-        .icon {
-            font-size: 35px;
-            margin-bottom: 18px;
-        }
-
-        .card h3 {
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #777;
-            line-height: 1.8;
-            font-size: 14px;
-        }
-
-        /* SOCIAL */
-        .social {
-            margin-top: 25px;
-            padding: 60px 25px;
-            text-align: center;
-            border-radius: 30px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(131,58,180,.15),
-                    rgba(225,48,108,.12),
-                    rgba(247,119,55,.08)
-                );
-
-            border: 1px solid rgba(255,255,255,.08);
-        }
-
-        .social h2 {
-            font-size: 42px;
-            margin: 12px 0;
-        }
-
-        .social p {
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .social a {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 14px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #833ab4,
-                    #e1306c,
-                    #f77737
-                );
-
-            transition: .3s;
-        }
-
-        .social a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(225,48,108,.3);
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 65px 20px;
-            border-top: 1px solid rgba(255,255,255,.06);
-            background: #030304;
-        }
-
-        footer h2 {
-            font-size: 35px;
-        }
-
-        footer p {
-            color: #555;
-            margin-top: 10px;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 750px) {
-
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 16px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .hero {
-                min-height: 600px;
-                background-position: center;
-            }
-
-            .hero-content {
-                padding: 70px 20px;
-            }
-
-            .hero h1 {
-                font-size: 60px;
-                letter-spacing: -4px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .profile {
-                grid-template-columns: 1fr;
-                padding: 30px;
-            }
-
-            .profile-logo {
-                width: 120px;
-                height: 120px;
-                font-size: 35px;
-                border-radius: 30px;
-            }
-
-            .profile h2 {
-                font-size: 36px;
-            }
-
-            .stats,
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .passion {
-                padding: 35px 25px;
-            }
-
-            .social h2 {
-                font-size: 34px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Tahir Bilal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030305;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    height:70px;
+    background:rgba(3,3,7,.90);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+    font-size:40px;
+    font-weight:900;
+    letter-spacing:-5px;
+    background:linear-gradient(135deg,#743cff,#d928ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    gap:38px;
+}
+
+.nav-links a{
+    position:relative;
+    color:#ddd;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#a855f7;
+}
+
+.nav-links a:nth-child(2){
+    color:#a855f7;
+}
+
+.nav-links a:nth-child(2)::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-12px;
+    height:2px;
+    background:#a855f7;
+    box-shadow:0 0 12px #a855f7;
+}
+
+
+/* HERO */
+
+.hero{
+    position:relative;
+    min-height:340px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,4,8,.82),
+            rgba(2,4,8,.38),
+            rgba(2,4,8,.28)
+        ),
+        url("IMG-20260816-WA0006.jpg");
+
+    background-size:cover;
+    background-position:center;
+    border-bottom:1px solid rgba(168,85,247,.25);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            #030305 100%
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:auto;
+    padding:75px 40px 50px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid #8b35d6;
+    border-radius:30px;
+    color:#a855f7;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+    box-shadow:0 0 15px rgba(168,85,247,.15);
+}
+
+.hero h1{
+    font-size:54px;
+    margin-top:18px;
+    letter-spacing:-3px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #c026d3,
+        #ff5b4d
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#ccc;
+    margin-top:10px;
+    font-size:15px;
+}
+
+
+/* MAIN */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 40px 30px;
+    position:relative;
+    z-index:5;
+}
+
+
+/* PROFILE AREA */
+
+.profile-area{
+    display:grid;
+    grid-template-columns:1.65fr .9fr;
+    gap:14px;
+    margin-top:-45px;
+}
+
+.profile{
+    min-height:235px;
+    position:relative;
+    overflow:hidden;
+    padding:28px;
+    border:1px solid rgba(139,92,246,.5);
+    border-radius:10px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9,8,14,.97),
+            rgba(9,8,14,.84)
+        );
+    box-shadow:
+        0 0 30px rgba(88,28,135,.10);
+}
+
+.profile::after{
+    content:"";
+    position:absolute;
+    width:210px;
+    height:210px;
+    right:15px;
+    bottom:-30px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.12),
+            transparent 65%
+        );
+}
+
+.profile-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#171021;
+    border:1px solid #7637b7;
+    color:#a855f7;
+    font-size:19px;
+    margin-bottom:14px;
+}
+
+.profile h2{
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.role{
+    color:#a855f7;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:16px;
+}
+
+.profile p{
+    max-width:450px;
+    color:#aaa;
+    font-size:11px;
+    line-height:1.8;
+}
+
+
+/* STATS */
+
+.stats-title{
+    color:#a855f7;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin:20px 0 8px;
+}
+
+.stats{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.stat{
+    min-height:63px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:10px 15px;
+    border:1px solid rgba(139,92,246,.28);
+    border-radius:9px;
+    background:rgba(255,255,255,.025);
+}
+
+.stat-icon{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:#d946ef;
+    background:#171021;
+    border:1px solid rgba(217,70,239,.3);
+    font-size:18px;
+}
+
+.stat strong{
+    display:block;
+    color:#c026d3;
+    font-size:18px;
+}
+
+.stat span{
+    color:#aaa;
+    font-size:10px;
+}
+
+
+/* THREE CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:12px;
+}
+
+.card{
+    min-height:245px;
+    padding:20px 18px;
+    border:1px solid rgba(139,92,246,.35);
+    border-radius:10px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,12,24,.95),
+            rgba(5,5,8,.95)
+        );
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#a855f7;
+    box-shadow:0 0 25px rgba(139,92,246,.16);
+}
+
+.card-icon{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:15px;
+    background:#171021;
+    border:1px solid #743cff;
+}
+
+.card h3{
+    font-size:17px;
+    margin-bottom:13px;
+}
+
+.card h3::after{
+    content:"";
+    display:block;
+    width:25px;
+    height:2px;
+    margin-top:8px;
+    background:#a855f7;
+}
+
+.card p{
+    color:#aaa;
+    font-size:11px;
+    line-height:1.75;
+}
+
+
+/* INSTAGRAM */
+
+.instagram{
+    position:relative;
+    overflow:hidden;
+    min-height:105px;
+    margin-top:12px;
+    padding:20px 25px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    border:1px solid rgba(139,92,246,.5);
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(25,10,35,.96),
+            rgba(80,25,40,.68)
+        );
+}
+
+.instagram::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,80,70,.13)
+        );
+    pointer-events:none;
+}
+
+.insta-icon{
+    position:relative;
+    z-index:2;
+    width:58px;
+    height:58px;
+    flex-shrink:0;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    background:linear-gradient(
+        135deg,
+        #833ab4,
+        #e1306c,
+        #f77737
+    );
+    border:2px solid rgba(255,255,255,.35);
+}
+
+.insta-text{
+    position:relative;
+    z-index:2;
+    flex:1;
+}
+
+.insta-label{
+    color:#a855f7;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.insta-text h3{
+    font-size:17px;
+    margin:5px 0;
+}
+
+.insta-text p{
+    color:#aaa;
+    font-size:10px;
+}
+
+.insta-btn{
+    position:relative;
+    z-index:2;
+    padding:11px 20px;
+    border-radius:7px;
+    text-decoration:none;
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ff684d
+    );
+    white-space:nowrap;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:20px 20px 35px;
+    border-top:1px solid rgba(255,255,255,.08);
+    background:#020204;
+}
+
+footer h2{
+    font-size:24px;
+}
+
+footer p{
+    color:#666;
+    font-size:10px;
+    margin-top:7px;
+}
+
+.social-icons{
+    margin:10px 0;
+    color:#aaa;
+    font-size:17px;
+    word-spacing:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+    .navbar{
+        height:auto;
+    }
+
+    .nav-container{
+        padding:16px 18px;
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .logo{
+        font-size:35px;
+    }
+
+    .nav-links{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:300px;
+        background-position:center;
+    }
+
+    .hero-content{
+        padding:60px 25px 45px;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-2px;
+    }
+
+    .container{
+        padding:0 15px 25px;
+    }
+
+    .profile-area{
+        grid-template-columns:1fr;
+        margin-top:-30px;
+    }
+
+    .profile{
+        min-height:260px;
+        padding:25px 20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        min-height:auto;
+    }
+
+    .instagram{
+        flex-wrap:wrap;
+        padding:18px;
+    }
+
+    .insta-btn{
+        margin-left:76px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav class="navbar">
+
     <div class="nav-container">
 
         <a href="index.html" class="logo">TB</a>
@@ -486,150 +587,189 @@
         </div>
 
     </div>
+
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="small-title">
-            🏍️ RIDER PROFILE
+        <div class="badge">
+            01 — ABOUT ME
         </div>
 
         <h1>
-            No. 1 Rider<br>
-            in <span class="gradient">Kashmir</span>
+            About <span class="gradient">Me</span>
         </h1>
 
         <p>
-            Passion on two wheels. Freedom on every road.
+            Know more about Tahir Bilal
         </p>
 
     </div>
 
 </section>
 
+
 <main class="container">
+
+
+<!-- PROFILE + STATS -->
+
+<div class="profile-area">
 
     <section class="profile">
 
-        <div class="profile-logo">
-            TB
+        <div class="profile-icon">👤</div>
+
+        <h2>Who I Am</h2>
+
+        <div class="role">
+            🏍️ Passionate Rider
         </div>
-
-        <div>
-            <div class="section-label">ABOUT ME</div>
-
-            <h2>
-                Tahir <span class="gradient">Bilal</span>
-            </h2>
-
-            <p>
-                I am a passionate motorcycle rider who loves
-                exploring beautiful roads, mountains and new
-                destinations.
-                <br><br>
-                For me, riding is more than a hobby. It is
-                freedom, adventure and a way to create
-                unforgettable memories.
-            </p>
-        </div>
-
-    </section>
-
-    <section class="stats">
-
-        <div class="stat">
-            <div class="number">01</div>
-            <h3>Rider</h3>
-            <p>Motorcycle Enthusiast</p>
-        </div>
-
-        <div class="stat">
-            <div class="number">02</div>
-            <h3>Explorer</h3>
-            <p>Road & Mountain Explorer</p>
-        </div>
-
-        <div class="stat">
-            <div class="number">03</div>
-            <h3>Kashmir</h3>
-            <p>Proudly Riding in Kashmir</p>
-        </div>
-
-    </section>
-
-    <section class="passion">
-
-        <div class="section-label">
-            01 — MY PASSION
-        </div>
-
-        <h2>
-            Life on Two <span class="gradient">Wheels</span> 🏍️
-        </h2>
 
         <p>
-            Every ride gives me a new experience.
-            Every road creates a new memory.
-            I enjoy motorcycle rides, mountain roads,
-            long journeys and discovering new places.
+            My name is Tahir Bilal. I am passionate about
+            motorcycles, riding and exploring new places.
+            Riding is not only a hobby for me, it is a way
+            to experience freedom, adventure and beautiful roads.
         </p>
 
     </section>
 
-    <section class="cards">
 
-        <div class="card">
-            <div class="icon">🏍️</div>
-            <h3>Riding</h3>
-            <p>
-                Exploring roads and enjoying the freedom
-                of every motorcycle journey.
-            </p>
+    <section>
+
+        <div class="stats-title">
+            RIDER STATS
         </div>
 
-        <div class="card">
-            <div class="icon">🏔️</div>
-            <h3>Mountains</h3>
-            <p>
-                Discovering beautiful mountain roads,
-                valleys and unforgettable destinations.
-            </p>
-        </div>
+        <div class="stats">
 
-        <div class="card">
-            <div class="icon">🔥</div>
-            <h3>Adventure</h3>
-            <p>
-                Creating new experiences and memories
-                through every journey.
-            </p>
+            <div class="stat">
+                <div class="stat-icon">♧</div>
+                <div>
+                    <strong>500+</strong>
+                    <span>Kilometers Ridden</span>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-icon">♒</div>
+                <div>
+                    <strong>30+</strong>
+                    <span>Trips & Adventures</span>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-icon">🏍</div>
+                <div>
+                    <strong>2+</strong>
+                    <span>Years of Riding</span>
+                </div>
+            </div>
+
         </div>
 
     </section>
 
-    <section class="social">
+</div>
 
-        <div class="section-label">
+
+<!-- THREE CARDS -->
+
+<section class="cards">
+
+    <div class="card">
+
+        <div class="card-icon">🔥</div>
+
+        <h3>My Passion</h3>
+
+        <p>
+            I enjoy motorcycle rides, mountain roads,
+            long journeys and discovering new destinations.
+            My goal is to continue improving myself and
+            create memorable experiences through every journey.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">🏔️</div>
+
+        <h3>My Dream</h3>
+
+        <p>
+            My dream is to become a successful person while
+            continuing my passion for motorcycles, travelling
+            and adventure. I want to explore more places
+            and inspire others to follow their passions.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">🛣️</div>
+
+        <h3>Why I Ride</h3>
+
+        <p>
+            I ride because it gives me freedom, peace and
+            a break from everything. The destination is
+            important, but the journey is what creates the
+            best memories and stories for life.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
+
+<section class="instagram">
+
+    <div class="insta-icon">
+        ◎
+    </div>
+
+    <div class="insta-text">
+
+        <div class="insta-label">
             FOLLOW MY JOURNEY
         </div>
 
-        <h2>
-            Stay <span class="gradient">Connected</span>
-        </h2>
+        <h3>
+            @tahirbilal_03
+        </h3>
 
         <p>
-            Follow my motorcycle journey and future adventures.
+            Follow my riding journey, adventures
+            and latest updates on Instagram.
         </p>
 
-        <a href="#" target="_blank">
-            Instagram
-        </a>
+    </div>
 
-    </section>
+    <a href="#" class="insta-btn">
+        Follow on Instagram →
+    </a>
+
+</section>
+
 
 </main>
+
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -640,6 +780,10 @@
     <p>
         Bike Rider • BBA Student • Motorcycle Enthusiast
     </p>
+
+    <div class="social-icons">
+        ◎　▶　f
+    </div>
 
     <p>
         © 2026 Tahir Bilal. All Rights Reserved.
