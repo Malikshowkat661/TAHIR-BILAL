@@ -1,71 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Tahir Bilal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Tahir Bilal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#050507;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,7,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-4px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#8b5cf6,#ff6b35);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#c084fc;
+}
+
+/* HERO */
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+    padding:90px 25px 60px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 22px;
+    border:1px solid #8b5cf6;
+    border-radius:50px;
+    color:#b99cff;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:3px;
+    background:rgba(139,92,246,.08);
+}
+
+.hero h1{
+    margin-top:25px;
+    font-size:clamp(55px,10vw,95px);
+    line-height:.95;
+    letter-spacing:-6px;
+}
+
+.gradient{
+    background:linear-gradient(
+        100deg,
+        #8b5cf6,
+        #c084fc,
+        #ff6b35
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#777;
+    font-size:17px;
+    margin-top:22px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:0 25px 90px;
+}
+
+/* CONTACT GRID */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* CARD */
+
+.contact-card{
+    padding:35px;
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+}
+
+.contact-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(139,92,246,.55);
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    font-size:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.25),
+            rgba(255,107,53,.15)
+        );
+
+    margin-bottom:22px;
+}
+
+.contact-card h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:#777;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.contact-card a{
+    color:#b99cff;
+    text-decoration:none;
+    word-break:break-word;
+}
+
+.contact-card a:hover{
+    color:#ff8b5c;
+}
+
+/* BIG CONTACT */
+
+.connect{
+    margin-top:25px;
+    padding:50px 35px;
+    border-radius:28px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(139,92,246,.18),
+            transparent 45%
+        ),
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.label{
+    color:#a78bfa;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.connect h2{
+    font-size:clamp(35px,6vw,60px);
+    margin:15px 0;
+    letter-spacing:-3px;
+}
+
+.connect p{
+    max-width:700px;
+    color:#777;
+    line-height:1.8;
+}
+
+/* BUTTONS */
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+}
+
+.btn-primary{
+    color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ff6b35
+        );
+}
+
+.btn-outline{
+    color:#ccc;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.03);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(139,92,246,.25);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:60px 20px;
+    border-top:1px solid rgba(255,255,255,.06);
+    background:#030304;
+}
+
+footer h2{
+    font-size:30px;
+}
+
+footer p{
+    color:#555;
+    margin-top:10px;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .nav-container{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        font-size:12px;
+    }
+
+    .hero{
+        padding:70px 20px 50px;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-4px;
+    }
+
+    .container{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-card{
+        padding:28px;
+    }
+
+    .connect{
+        padding:35px 25px;
+    }
+
+    .connect h2{
+        font-size:40px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">T<span>B</span></a>
+<!-- NAVBAR -->
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="education.html">Education</a>
-            <a href="Bikes.html">Bikes</a>
-            <a href="Contact.Html">Contact</a>
-        </div>
-    </div>
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+TB
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="About.html">
+About
+</a>
+
+<a href="Education.html">
+Education
+</a>
+
+<a href="Bikes.html">
+Bikes
+</a>
+
+<a href="Contact.Html" class="active">
+Contact
+</a>
+
+</div>
+
+</div>
+
 </nav>
 
-<section class="container">
 
-    <div class="page-title">
-        <div class="small-title">04 — CONTACT</div>
+<!-- HERO -->
 
-        <h1>Contact <span>Me</span></h1>
+<section class="hero">
 
-        <p>Connect with me</p>
-    </div>
+<span class="badge">
+04 — CONTACT ME
+</span>
 
-    <div class="contact-box">
+<h1>
+Let's <span class="gradient">Connect</span>
+</h1>
 
-        <div class="contact-item">
-            📧 Email
-            <br>
-            <strong>offixtahir2638@gmail.com</strong>
-        </div>
-
-        <div class="contact-item">
-            📸 Instagram
-            <br>
-
-            <a
-                class="instagram"
-                href="https://www.instagram.com/tahirbilal_03/"
-                target="_blank">
-                @tahirbilal_03
-            </a>
-        </div>
-
-        <div class="contact-item">
-            🏍️ Motorcycle Enthusiast
-            <br>
-            <strong>Tahir Bilal</strong>
-        </div>
-
-    </div>
+<p>
+Have a question or just want to say hello?
+Feel free to reach out.
+</p>
 
 </section>
 
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+<section class="contact-grid">
+
+
+<!-- PHONE -->
+
+<div class="contact-card">
+
+<div class="icon">
+📱
+</div>
+
+<h3>
+Phone
+</h3>
+
+<p>
+You can contact me directly by phone.
+</p>
+
+<p style="margin-top:10px;">
+<a href="tel:+919XXXXXXXXX">
++91 XXXXX XXXXX
+</a>
+</p>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="contact-card">
+
+<div class="icon">
+✉️
+</div>
+
+<h3>
+Email
+</h3>
+
+<p>
+For messages, questions and opportunities.
+</p>
+
+<p style="margin-top:10px;">
+<a href="mailto:your-email@gmail.com">
+your-email@gmail.com
+</a>
+</p>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="contact-card">
+
+<div class="icon">
+📍
+</div>
+
+<h3>
+Location
+</h3>
+
+<p>
+Panzinara, Srinagar
+<br>
+Jammu & Kashmir, India
+</p>
+
+</div>
+
+
+<!-- INSTAGRAM -->
+
+<div class="contact-card">
+
+<div class="icon">
+📸
+</div>
+
+<h3>
+Instagram
+</h3>
+
+<p>
+Follow my motorcycle journey and adventures.
+</p>
+
+<p style="margin-top:10px;">
+<a href="#" target="_blank">
+@tahirbilal_03
+</a>
+</p>
+
+</div>
+
+
+</section>
+
+
+<!-- CONNECT -->
+
+<section class="connect">
+
+<span class="label">
+GET IN TOUCH
+</span>
+
+<h2>
+Let's talk about
+<span class="gradient">something great.</span>
+</h2>
+
+<p>
+Whether you want to talk about motorcycles, travelling,
+technology, education or simply want to say hello,
+I'd be happy to hear from you.
+</p>
+
+<div class="buttons">
+
+<a href="mailto:your-email@gmail.com"
+class="btn btn-primary">
+Send Email
+</a>
+
+<a href="tel:+919XXXXXXXXX"
+class="btn btn-outline">
+Call Me
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
 <footer>
-    <h2>TAHIR <span>BILAL</span></h2>
-    <p>Let's connect and share the journey.</p>
+
+<h2>
+TAHIR <span class="gradient">BILAL</span>
+</h2>
+
+<p>
+Bike Rider • BBA Student • Motorcycle Enthusiast
+</p>
+
+<p>
+© 2026 Tahir Bilal. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
